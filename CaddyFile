@@ -3,7 +3,6 @@
 
 
     file_server
-    encode zstd gzip
 
     templates {
         extensions {
@@ -12,6 +11,10 @@
             # 	style bright_green
             # 	pad_digits 6
             # }
+            # Enable server-side includes (SSI)
+            # ssi
+            # Specify the file extensions that should be parsed for SSI
+            # ext .html .htm
         }
     }
 
