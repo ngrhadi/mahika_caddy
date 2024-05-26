@@ -2,8 +2,9 @@ version: '3.8'
 
 services:
   web:
-    image: nginx:latest
+    build:
+      context: .
     ports:
       - "8800:8800"
     volumes:
-      - ./src:/usr/share/nginx/html
+      - ./src:/app/src
