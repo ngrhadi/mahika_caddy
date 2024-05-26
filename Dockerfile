@@ -14,7 +14,7 @@ COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 # COPY src /usr/share/caddy
 # COPY CaddyFile  /etc/caddy
 COPY ./src/ /srv/
-COPY ./Caddyfile /etc/caddy/Caddyfile
+COPY ./CaddyFile /etc/caddy/CaddyFile
 # EXPOSE 8080
 # CMD ["/app/caddy", "run"]
 
