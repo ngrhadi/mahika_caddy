@@ -1,8 +1,26 @@
 :8008 {
-    root * src
+    log {
+        output stdout
+        format console
+    }
 
-
+    root * ./src
     file_server
+
+    # Health check route without logging
+    @healthcheck {
+        path /health
+    }
+
+    handle @healthcheck {
+        skip_log
+        respond "OK" 200
+    }
+
+    # root * src
+
+
+    # file_server
 
     templates {
         extensions {
