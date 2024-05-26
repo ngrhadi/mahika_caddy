@@ -1,11 +1,11 @@
-FROM darron/caddy
+# final outcome
+FROM debian:12
+WORKDIR /app
 
-RUN mkdir /srv
-
-WORKDIR /srv
-
-COPY . /srv
+COPY src src
+COPY Caddyfile .
+COPY ./caddy_linux_amd64 ./caddy
 
 EXPOSE 8800
 
-CMD ["caddy", "run", "--envfile", ".env"]
+CMD ["/app/caddy", "run"]
