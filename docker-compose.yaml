@@ -7,4 +7,4 @@ services:
     ports:
       - "8800:8800"
     volumes:
-      - ./src:/app/src
+      - ./src:/usr/share/nginx/html
