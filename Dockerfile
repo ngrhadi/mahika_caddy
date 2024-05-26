@@ -2,7 +2,7 @@
 FROM debian:12
 WORKDIR /app
 
-COPY . .
+COPY . ./app
 
 EXPOSE 8800
 
