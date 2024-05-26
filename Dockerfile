@@ -8,4 +8,4 @@ COPY ./caddy_linux_amd64 ./caddy
 
 EXPOSE 8800
 
-CMD ["/app/caddy", "run", "--config", "/app/Caddyfile"]
+CMD ["/app/caddy", "run"]
