@@ -4,6 +4,8 @@ FROM caddy:latest-builder AS builder
 
 # COPY src /usr/share/caddy
 # COPY CaddyFile  /etc/caddy
+COPY Caddyfile /etc/caddy/Caddyfile
+COPY src /usr/share/caddy
 
 RUN xcaddy build \
   --with github.com/caddyserver/nginx-adapter \
