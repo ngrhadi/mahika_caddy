@@ -2,9 +2,7 @@
 FROM debian:12
 WORKDIR /app
 
-COPY src src
-COPY Caddyfile ./Caddyfile
-COPY caddy ./caddy
+COPY . .
 
 EXPOSE 8800
 
