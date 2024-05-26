@@ -3,8 +3,8 @@ FROM debian:12
 WORKDIR /app
 
 COPY src src
-COPY Caddyfile .
-COPY ./caddy_linux_amd64 ./caddy
+COPY Caddyfile ./Caddyfile
+COPY caddy ./caddy
 
 EXPOSE 8800
 
