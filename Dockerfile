@@ -1,11 +1,10 @@
 # final outcome
-FROM gcr.io/distroless/cc-debian12
+FROM debian:12
+
 WORKDIR /app
 
-COPY src src
-COPY Caddyfile .
-COPY ./caddy_linux_amd64 ./caddy
+COPY . /app
 
-EXPOSE 8800
+EXPOSE 80
 
-CMD ["/app/caddy", "run", "--config", "/app/Caddyfile"]
+CMD ["/app/caddy", "run"]
