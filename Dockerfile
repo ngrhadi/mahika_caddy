@@ -5,6 +5,6 @@ WORKDIR /app
 
 COPY . /app
 
-EXPOSE 80
+EXPOSE 8008
 
 CMD ["/app/caddy", "run"]
