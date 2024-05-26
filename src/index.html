@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{include "/utils/header.html"}}
+<body>
+
+  <div id="main">
+    {{include "/components/Navbar.html"}}
+
+    <section id="home">
+      <div class="panel bg-[#fefefe] border-b-2">
+        {{include "/components/Hero.html"}}
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="panel bg-[#fefefe]">
+        {{include "/components/About.html"}}
+      </div>
+    </section>
+
+    <section id="service" class="sample">
+      <div class="panel bg-white border-r-2 border-t-2">
+        <!-- translate: none; rotate: none; scale: none; inset: 0px auto auto 0px; margin: 0px; max-width: 1087px; width: 1087px; max-height: 984px; height: 984px; padding: 0px; transform: translate(0px, 0px); -->
+        <div class="inner">
+          <img class="bg" src="https://picsum.photos/1600/800?random=1" alt="1"/>
+          {{include "/components/Engineering.html"}}
+        </div>
+      </div>
+
+      <div class="panel bg-white border-r-2 border-t-2">
+        <!-- translate: none; rotate: none; scale: none; left: 0px; top: 0px; margin: 0px; max-width: 1087px; width: 1087px; max-height: 984px; height: 984px; padding: 0px; box-sizing: border-box; position: fixed; transform: translate(0px, 0px); -->
+        <div class="inner">
+          <img class="bg" src="https://picsum.photos/1600/800?random=2" alt="2"/>
+          {{include "/components/GIS.html"}}
+        </div>
+      </div>
+
+      <div class="panel bg-white border-b-2 border-t-2">
+        <div class="inner">
+          <img class="bg" src="https://picsum.photos/1600/800?random=3" alt="3"/>
+          {{include "/components/Technology.html"}}
+        </div>
+      </div>
+  </section>
+
+  <section id="teams">
+    <div class="panel bg-[#fefefe] border-b-2">
+        {{include "/components/Teams.html"}}
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="panel bg-[#fefefe]">
+      {{include "/components/Contact.html"}}
+      {{include "/utils/footer.html"}}
+    </div>
+  </section>
+  </div>
+</body>
+</html>
