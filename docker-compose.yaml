@@ -2,12 +2,8 @@ version: '3.8'
 
 services:
   web:
-    build:
-      context: .
+    image: nginx:latest
     ports:
       - "8800:8800"
     volumes:
-      - ./src:/app/src
-    environment:
-      - CADDY_INGRESS_NETWORKS=web
-
+      - ./src:/usr/share/nginx/html
