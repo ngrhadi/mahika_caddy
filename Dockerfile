@@ -1,6 +1,7 @@
-FROM caddy:latest AS builder
+FROM darron/caddy
 
 RUN mkdir /srv
+
 WORKDIR /srv
 
 COPY . /srv
