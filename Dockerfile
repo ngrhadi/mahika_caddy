@@ -1,10 +1,12 @@
-# final outcome
-FROM debian:12
+FROM caddy:latest AS builder
 
-WORKDIR /app
+RUN mkdir /srv
+WORKDIR /srv
 
-COPY . /app
+COPY src /srv/src
+COPY Caddyfile .
+COPY . /srv
 
-EXPOSE 8008
+EXPOSE 2015
 
-CMD ["/app/caddy", "run"]
+CMD ["caddy", "run", "--envfile", ".env"]
