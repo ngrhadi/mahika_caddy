@@ -7,7 +7,7 @@ services:
     ports:
       - "8008:80"
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./CaddyFile:/etc/caddy/CaddyFile
       - caddy_data:/data
       - caddy_config:/config
 
