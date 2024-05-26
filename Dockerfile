@@ -3,7 +3,7 @@ FROM caddy:latest-builder AS builder
 WORKDIR /usr/share/caddy
 
 COPY src /usr/share/caddy
-COPY CaddyFile  /etc/caddy/CaddyFile
+COPY CaddyFile  /etc/caddy/
 
 RUN xcaddy build \
   --with github.com/caddyserver/nginx-adapter \
