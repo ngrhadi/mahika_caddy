@@ -4,7 +4,7 @@ FROM caddy:latest
 
 # COPY src /usr/share/caddy
 # COPY CaddyFile  /etc/caddy
-COPY ./site/ /srv/
+COPY ./src/ /srv/
 COPY ./Caddyfile /etc/caddy/Caddyfile
 # EXPOSE 8080
 # CMD ["/app/caddy", "run"]
