@@ -1,11 +1,11 @@
-FROM caddy:latest-builder AS builder
+FROM caddy:2.8.0-rc.1-builder-alpine AS builder
 
 RUN xcaddy build \
   --with github.com/caddyserver/nginx-adapter \
   --with github.com/hairyhenderson/caddy-teapot-module@v0.0.3-0
 
 # Final stage
-FROM caddy:latest
+FROM caddy:2.8.0-rc.1-alpine
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 
