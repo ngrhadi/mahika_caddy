@@ -1,9 +1,5 @@
-# final outcome
-FROM debian:12
-WORKDIR /app
+FROM caddy:latest
 
-COPY . ./app
+WORKDIR /usr/share/caddy
 
-EXPOSE 8008
-
-CMD ["/app/caddy", "run"]
+COPY . /usr/share/caddy
