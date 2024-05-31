@@ -3,9 +3,9 @@ FROM debian:stable-slim as builder
 WORKDIR /app
 
 # Copy files to the builder stage
-COPY /app/src ./app/src
-COPY Caddyfile ./app/Caddyfile
-COPY caddy ./app/caddy
+COPY src /app/src
+COPY Caddyfile /app/Caddyfile
+COPY caddy /app/caddy
 
 # Ensure the Caddy binary has execute permissions
 RUN chmod +x /app/caddy
