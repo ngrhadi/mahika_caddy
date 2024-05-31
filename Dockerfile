@@ -5,7 +5,7 @@ WORKDIR /app
 # Copy files from the builder stage
 COPY CaddyFile /etc/caddy/CaddyFile
 COPY caddy /etc/caddy/caddy
-COPY ./app/src /srv
+COPY app/src /srv
 
 # Expose the port Caddy will listen on
 EXPOSE 8008
