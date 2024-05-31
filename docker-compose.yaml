@@ -2,8 +2,9 @@ version: '3.8'
 
 services:
   web:
-    image: nginx:latest
+    image: caddy:latest
     ports:
       - "8081:80"
     volumes:
-      - ./src:/usr/share/nginx/html
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./src:/srv
