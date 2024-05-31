@@ -4,7 +4,7 @@
 		format console
 	}
 
-	root * ./src
+	root * ./app/src
 	file_server
 
 	# Health check route without logging
