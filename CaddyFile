@@ -1,71 +1,71 @@
 :8008 {
-    log {
-        output stdout
-        format console
-    }
+	log {
+		output stdout
+		format console
+	}
 
-    root * ./src
-    file_server
+	root * ./src
+	file_server
 
-    # Health check route without logging
-    @healthcheck {
-        path /health
-    }
+	# Health check route without logging
+	@healthcheck {
+		path /health
+	}
 
-    handle @healthcheck {
-        skip_log
-        respond "OK" 200
-    }
+	handle @healthcheck {
+		skip_log
+		respond "OK" 200
+	}
 
-    # root * src
+	# root * src
 
 
-    # file_server
+	# file_server
 
-    templates {
-        extensions {
-            # Uncomment this if you have the caddy-hitcounter plugin (https://github.com/mholt/caddy-hitcounter):
-            # hitCounter {
-            # 	style bright_green
-            # 	pad_digits 6
-            # }
-            # Enable server-side includes (SSI)
-            # ssi
-            # Specify the file extensions that should be parsed for SSI
-            # ext .html .htm
-        }
-    }
+	templates {
+		extensions {
+			# Uncomment this if you have the caddy-hitcounter plugin (https://github.com/mholt/caddy-hitcounter):
+			# hitCounter {
+			# 	style bright_green
+			# 	pad_digits 6
+			# }
+			# Enable server-side includes (SSI)
+			# ssi
+			# Specify the file extensions that should be parsed for SSI
+			# ext .html .htm
+		}
+	}
 
-    encode zstd gzip
+	encode zstd gzip
 
-    @static {
-        path_regexp \.(ico|css|js|gif|jpg|jpeg|png|svg|woff|webp)$
-    }
+	@static {
+		path_regexp \.(ico|css|js|gif|jpg|jpeg|png|svg|woff|webp)$
+	}
 
-    header @static Cache-Control max-age=5184000
+	header @static Cache-Control max-age=5184000
 
-    handle_errors {
-        @404 {
-            expression {http.error.status_code} == 404
-        }
-        rewrite @404 /404.html
-        templates {
-            extensions {
-                # Uncomment this if you have the caddy-hitcounter plugin (https://github.com/mholt/caddy-hitcounter):
-                # hitCounter {
-                # 	style bright_green
-                # 	pad_digits 6
-                # }
-            }
-        }
-        file_server
-    }
+	handle_errors {
+		@404 {
+			expression {http.error.status_code} == 404
+		}
+		rewrite @404 /404.html
+		templates {
+			extensions {
+				# Uncomment this if you have the caddy-hitcounter plugin (https://github.com/mholt/caddy-hitcounter):
+				# hitCounter {
+				# 	style bright_green
+				# 	pad_digits 6
+				# }
+			}
+		}
+		file_server
+	}
 
-    try_files {path}.html {path}
+	try_files {path}.html {path}
 
-    # @api {
-    #     path_regexp api /*/api*
-    # }
+	# @api {
+	#     path_regexp api /*/api*
+	# }
 
-    # reverse_proxy @api {env.BASE_URL}
+	# reverse_proxy @api {env.BASE_URL}
 }

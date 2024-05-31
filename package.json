@@ -4,7 +4,8 @@
   "description": "- change env with variable `BASE_URL` pointing to your backend - run project using ```bash # runing with start command environment variable caddy start --envfile .env",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tailwind": "npx tailwindcss -i ./src/assets/css/tailwind.css -o ./src/public/css/output.css --watch",
+    "build": "npx tailwindcss build -o ./src/public/css/output.css"
   },
   "keywords": [],
   "author": "",

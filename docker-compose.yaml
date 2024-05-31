@@ -1,19 +1,9 @@
-version: '3.7'
+version: '3.8'
 
 services:
-  caddy:
-    image: caddy:latest
-    restart: unless-stopped
+  web:
+    image: nginx:latest
     ports:
-      - "8008:80"
-      - "443:443"
-      - "443:443/udp"
+      - "8081:80"
     volumes:
-      - ./CaddyFile:/etc/caddy/CaddyFile
-      - ./src:/srv
-      - caddy_data:/data
-      - caddy_config:/config
-
-volumes:
-  caddy_data:
-  caddy_config:
+      - ./src:/usr/share/nginx/html
