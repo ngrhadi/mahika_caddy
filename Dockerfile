@@ -1,14 +1,16 @@
-# First stage: Use a build image with a shell
-FROM debian:stable-slim as builder
+# First stage: Build Caddy from source
+FROM golang:1.20 AS builder
 WORKDIR /app
 
-# Copy files to the builder stage
-COPY src /app/src
-COPY Caddyfile /app/Caddyfile
-COPY caddy /app/caddy
+# Install Caddy
+RUN go install github.com/caddyserver/caddy/v2@latest
 
-# Ensure the Caddy binary has execute permissions
-RUN chmod +x /app/caddy
+# Copy your Caddyfile and any Go source files
+COPY Caddyfile /app/
+COPY src /app/src
+
+# Compile your Caddy server binary
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /app/caddy github.com/caddyserver/caddy/v2
 
 # Second stage: Use the distroless image
 FROM gcr.io/distroless/cc-debian12
@@ -21,4 +23,4 @@ COPY --from=builder /app /app
 EXPOSE 8008
 
 # Set the command to run Caddy
-CMD ["/app/caddy", "run"]
+CMD ["/app/caddy", "run", "--config", "/app/Caddyfile"]
