@@ -22,4 +22,4 @@ EXPOSE 8008
 
 # Set the command to run Caddy
 # CMD ["/app/caddy", "run", "--config", "/app/Caddyfile"]
-CMD ["caddy", "run", "--envfile" ".env"]
+CMD ["/app/caddy", "run", "--envfile" ".env"]
