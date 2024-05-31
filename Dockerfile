@@ -5,7 +5,7 @@ WORKDIR /app
 # Copy files to the builder stage
 COPY src src
 COPY Caddyfile .
-COPY ./caddy_linux_amd64 ./caddy
+COPY caddy ./caddy
 
 # Ensure the Caddy binary has execute permissions
 RUN chmod +x /app/caddy
