@@ -1,5 +1,5 @@
 # First stage: Build Caddy from source
-FROM golang:1.20 AS builder
+FROM golang:1.21 AS builder
 WORKDIR /app
 
 # Install Caddy
