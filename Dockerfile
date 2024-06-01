@@ -15,8 +15,9 @@ FROM gcr.io/distroless/cc-debian12
 WORKDIR /app
 
 # Copy files from the builder stage
-COPY Caddyfile /etc/caddy/Caddyfile
-COPY . .
+COPY /Caddyfile /app/caddy/Caddyfile
+COPY /app/src /app/src
+COPY /caddy /app/caddy
 
 # Expose the port Caddy will listen on
 EXPOSE 8008
