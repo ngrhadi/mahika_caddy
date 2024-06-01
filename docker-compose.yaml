@@ -4,7 +4,7 @@ services:
   web:
     image: caddy:latest
     ports:
-      - "8008:80"
+      - "8018:8018"
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - ./app/src:/srv

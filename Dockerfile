@@ -20,7 +20,7 @@ COPY /app/src /app/src
 COPY /caddy /app/caddy
 
 # Expose the port Caddy will listen on
-EXPOSE 8008
+EXPOSE 8081
 
 # Set the command to run Caddy
 # CMD ["/app/caddy", "run", "--config", "/app/Caddyfile"]
