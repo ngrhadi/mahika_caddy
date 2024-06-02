@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", (event) => {
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, CustomEase);
 
   /*-- ScrollTrigger 1: sections scroll and snap vertically ------*/
   let sections = gsap.utils.toArray('section');
@@ -50,4 +50,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     panels.forEach((panel, i) => sectionPositions.push((start + i * each) / max)); // add the panel positions
     snap = ScrollTrigger.snapDirectional(sectionPositions); // a snapping function that we can just feed a scroll value to and a direction and it'll spit back the closest one (ratio/progress) in that direction
   });
+
+
+
 });

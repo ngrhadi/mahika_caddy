@@ -1,0 +1,74 @@
+<div class="fixed top-0 max-w-[100vw] z-[9999]">
+  <div class="relative w-[100vw] h-20 lg:h-24 bg-[#fefefe] flex justify-between py-4 px-4">
+    <img src="/assets/images/mahika-color.jpg" alt="logo"/>
+
+    <!-- web navbar -->
+    <div class="hidden md:flex gap-4 items-center text-xl text-[#5f120b] z-10">
+      <a href="#home" class="hover:bg-[#5f120b]/90 min-w-[100px] p-2 text-center hover:text-white rounded-lg">Home</a>
+      <a href="#about" class="hover:bg-[#5f120b]/90 min-w-[100px] p-2 text-center hover:text-white rounded-lg">About</a>
+      <a href="#service" class="hover:bg-[#5f120b]/90 min-w-[100px] p-2 text-center hover:text-white rounded-lg">Service</a>
+      <a href="#teams" class="hover:bg-[#5f120b]/90 min-w-[100px] p-2 text-center hover:text-white rounded-lg">Teams</a>
+      <a href="#contact" class="hover:bg-[#5f120b]/90 min-w-[100px] p-2 text-center hover:text-white rounded-lg">Contact</a>
+    </div>
+
+    <!-- mobile navbar -->
+    <div
+        x-data="{ isOpenMobileNavbar: false }"
+        class="flex md:hidden items-center"
+      >
+      <button @click="toggleNavbar" class="border-0 border-[#5f120b] h-12 w-12">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#5f120b" class="size-10">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+
+
+      <!-- make this animation using gsap in from right out to right  -->
+      <div x-data="{ isOpenMobileNavbar: false }" x-show="isOpenMobileNavbar" @click.away="isOpenMobileNavbar = false"
+        x-init="() => {
+            window.toggleNavbar = () => {
+              isOpenMobileNavbar = !isOpenMobileNavbar;
+              if (isOpenMobileNavbar === true) {
+                  gsap.fromTo('.mobile-navbar', { x: '100%' }, { x: '0%', duration: 0.5 });
+              }
+
+            }
+        }"
+        class="absolute mobile-navbar w-full left-0 top-0 min-h-[100vh] overflow-x-auto bg-[#c6edf7] shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="nav-mobile" tabindex="-1">
+        <div class="flex flex-col gap-2" role="none">
+          <div class="bg-white">
+            <button type="button" @click="toggleNavbar" type="button"
+              id="nav-mobile" aria-expanded="false" aria-haspopup="false" class="absolute right-4 top-4">
+             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#5f120b" class="size-10">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m15 15 6-6m0 0-6-6m6 6H9a6 6 0 0 0 0 12h3" />
+              </svg>
+            </button>
+          </div>
+          <div class="flex flex-col gap-8 mt-28 px-5" x-init="() => {
+            window.toggleNavbar = () => {
+              isOpenMobileNavbar = !isOpenMobileNavbar;
+              if (isOpenMobileNavbar === true) {
+                  gsap.fromTo('.href-navbar-1', { x: '100%' }, { x: '0%', duration: 0.5 });
+                  gsap.fromTo('.href-navbar-2', { x: '100%' }, { x: '0%', duration: 0.9 });
+                  gsap.fromTo('.href-navbar-3', { x: '100%' }, { x: '0%', duration: 1.3 });
+                  gsap.fromTo('.href-navbar-4', { x: '100%' }, { x: '0%', duration: 1.7 });
+                  gsap.fromTo('.href-navbar-5', { x: '100%' }, { x: '0%', duration: 2.1 });
+              }
+
+            }
+          }">
+            <a href="#home" @click="toggleNavbar" class="href-navbar-1 hover:bg-[#5f120b]/90 min-w-[100px] p-2 text-xl font-bold text-center hover:text-white rounded-lg">Home</a>
+            <a href="#about" @click="toggleNavbar" class="href-navbar-2 hover:bg-[#5f120b]/90 min-w-[100px] text-xl font-bold p-2 text-center hover:text-white rounded-lg">About</a>
+            <a href="#service" @click="toggleNavbar" class="href-navbar-3 hover:bg-[#5f120b]/90 min-w-[100px] text-xl font-bold p-2 text-center hover:text-white rounded-lg">Service</a>
+            <a href="#teams" @click="toggleNavbar" class="href-navbar-4 hover:bg-[#5f120b]/90 min-w-[100px] text-xl font-bold p-2 text-center hover:text-white rounded-lg">Teams</a>
+            <a href="#contact" @click="toggleNavbar" class="href-navbar-5 hover:bg-[#5f120b]/90 min-w-[100px] text-xl font-bold p-2 text-center hover:text-white rounded-lg">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden md:block absolute -top-4 right-0 z-0">
+      <img src="/assets/images/head1.png" alt="head" height="120px" width="150px"/>
+    </div>
+  </div>
+</div>

@@ -12,3 +12,7 @@ caddy start --envfile .env
 caddy run --envfile .env
 ```
 
+
+```bash
+docker-compose -f nginx-docker-compose.yml up -d
+```
